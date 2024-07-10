@@ -73,7 +73,7 @@ export const signIn = async (formData: FormData) => {
 
     if (!passwordMatch) throw new Error("invalid credentials");
 
-    setSessionCookie(user.id);
+    await setSessionCookie(user.id);
 
     return { success: true, message: "user created" };
   } catch (error) {
