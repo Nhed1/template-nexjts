@@ -3,6 +3,7 @@
 import { lucia } from "@/app/db";
 import { createUser, getUserByEmail } from "@/app/db/users/queries";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 import { Argon2id } from "oslo/password";
 
 interface IClientUser {
@@ -79,4 +80,16 @@ export const signIn = async (formData: FormData) => {
   } catch (error) {
     return { success: false, error, message: "something went wrong" };
   }
+};
+
+export const logOut = async () => {
+  const sessionCookie = lucia.createBlankSessionCookie();
+
+  cookies().set(
+    sessionCookie.name,
+    sessionCookie.value,
+    sessionCookie.attributes
+  );
+
+  return redirect("/auth");
 };
