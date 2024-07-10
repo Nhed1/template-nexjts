@@ -18,6 +18,8 @@ const adapter = new DrizzleSQLiteAdapter(db, sessionTable, userTable);
 
 export const lucia = new Lucia(adapter, {
   sessionCookie: {
+    name: "auth-cookie",
+    expires: false,
     attributes: {
       secure: process.env.NODE_ENV === "production",
     },
