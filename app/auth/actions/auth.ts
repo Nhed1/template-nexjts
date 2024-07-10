@@ -1,3 +1,5 @@
+"use server";
+
 import { lucia } from "@/app/db";
 import { createUser, getUserByEmail } from "@/app/db/users/queries";
 import { cookies } from "next/headers";
