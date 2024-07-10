@@ -10,6 +10,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { TabsContent } from "@/components/ui/tabs";
+import { signIn } from "./actions/auth";
 
 export const SignInTab = () => {
   return (
@@ -19,23 +20,31 @@ export const SignInTab = () => {
           <CardTitle>Entrar</CardTitle>
           <CardDescription>Preencha suas credenciais</CardDescription>
         </CardHeader>
-        <CardContent className="space-y-2">
-          <div className="space-y-1">
-            <Label htmlFor="email">Email</Label>
-            <Input
-              id="email"
-              placeholder="pedro.duarte@gmail.com"
-              type="email"
-            />
-          </div>
-          <div className="space-y-1">
-            <Label htmlFor="password">Senha</Label>
-            <Input id="password" placeholder="123456" type="password" />
-          </div>
-        </CardContent>
-        <CardFooter>
-          <Button>Entrar</Button>
-        </CardFooter>
+        <form action={signIn}>
+          <CardContent className="space-y-2">
+            <div className="space-y-1">
+              <Label htmlFor="email">Email</Label>
+              <Input
+                id="email"
+                placeholder="pedro.duarte@gmail.com"
+                type="email"
+                name="email"
+              />
+            </div>
+            <div className="space-y-1">
+              <Label htmlFor="password">Senha</Label>
+              <Input
+                id="password"
+                placeholder="123456"
+                type="password"
+                name="password"
+              />
+            </div>
+          </CardContent>
+          <CardFooter>
+            <Button type="submit">Entrar</Button>
+          </CardFooter>
+        </form>
       </Card>
     </TabsContent>
   );

@@ -22,7 +22,19 @@ const setSessionCookie = async (userId: number) => {
   );
 };
 
-export const signUp = async (values: IClientUser) => {
+const getUser = (values: FormData): IClientUser => {
+  const user = {
+    email: values.get("email") as string,
+    password: values.get("password") as string,
+    name: values.get("name") as string,
+  };
+
+  return user;
+};
+
+export const signUp = async (formData: FormData) => {
+  const values = getUser(formData);
+
   try {
     const users = await getUserByEmail(values.email);
     if (users.length > 0) throw new Error("user already exists");
@@ -44,7 +56,9 @@ export const signUp = async (values: IClientUser) => {
   }
 };
 
-export const signIn = async (values: IClientUser) => {
+export const signIn = async (formData: FormData) => {
+  const values = getUser(formData);
+
   try {
     const users = await getUserByEmail(values.email);
     const user = users[0];

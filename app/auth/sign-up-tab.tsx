@@ -10,6 +10,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { TabsContent } from "@/components/ui/tabs";
+import { signUp } from "./actions/auth";
 
 export const SignUpTab = () => {
   return (
@@ -19,27 +20,35 @@ export const SignUpTab = () => {
           <CardTitle>Registrar</CardTitle>
           <CardDescription>Preencha suas credenciais</CardDescription>
         </CardHeader>
-        <CardContent className="space-y-2">
-          <div className="space-y-1">
-            <Label htmlFor="email">Email</Label>
-            <Input
-              id="email"
-              placeholder="pedro.duarte@gmail.com"
-              type="email"
-            />
-          </div>
-          <div className="space-y-1">
-            <Label htmlFor="name">Nome</Label>
-            <Input id="name" placeholder="Pedro Duarte" />
-          </div>
-          <div className="space-y-1">
-            <Label htmlFor="password">Senha</Label>
-            <Input id="password" placeholder="123456" type="password" />
-          </div>
-        </CardContent>
-        <CardFooter>
-          <Button>Registrar</Button>
-        </CardFooter>
+        <form action={signUp}>
+          <CardContent className="space-y-2">
+            <div className="space-y-1">
+              <Label htmlFor="email">Email</Label>
+              <Input
+                name="email"
+                id="email"
+                placeholder="pedro.duarte@gmail.com"
+                type="email"
+              />
+            </div>
+            <div className="space-y-1">
+              <Label htmlFor="name">Nome</Label>
+              <Input id="name" placeholder="Pedro Duarte" name="name" />
+            </div>
+            <div className="space-y-1">
+              <Label htmlFor="password">Senha</Label>
+              <Input
+                id="password"
+                placeholder="123456"
+                type="password"
+                name="password"
+              />
+            </div>
+          </CardContent>
+          <CardFooter>
+            <Button type="submit">Registrar</Button>
+          </CardFooter>
+        </form>
       </Card>
     </TabsContent>
   );
