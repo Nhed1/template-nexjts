@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { logOut } from "./actions/auth";
+import { logOut } from "../auth/actions/auth";
 import { ReactNode } from "react";
 
 export const SignOutButton = ({ children }: { children: ReactNode }) => {

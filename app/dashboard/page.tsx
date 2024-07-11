@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { getUser } from "../db";
-import { SignOutButton } from "../auth/sign-out-button";
+import { SignOutButton } from "../components/sign-out-button";
 
 export default async function Dashboard() {
   const user = await getUser();
