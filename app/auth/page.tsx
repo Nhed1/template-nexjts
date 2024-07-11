@@ -12,7 +12,7 @@ export default async function Auth() {
   }
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center pt-32 h-screen ">
       <Tabs defaultValue="sign-in" className="w-[400px]">
         <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger value="sign-in">Entrar</TabsTrigger>
